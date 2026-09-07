@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop – Eliah</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Eliah</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="#"><i class="fas fa-search"></i></a>
+        <a href="#"><i class="far fa-heart"></i></a>
+        <a href="#"><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></a>
+        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Shop</h1>
+      <div class="breadcrumb"><a href="index.html">Home</a> / Shop</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="shop-layout">
+      <!-- Sidebar -->
+      <aside class="shop-sidebar">
+        <div class="widget">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="#">Spa</a></li>
+            <li><a href="#">Beauty</a></li>
+            <li><a href="#" class="active">Make up</a></li>
+            <li><a href="#">Skincare</a></li>
+            <li><a href="#">Body care</a></li>
+            <li><a href="#">Tools</a></li>
+          </ul>
+        </div>
+        <div class="widget">
+          <h3>Refine Search</h3>
+          <p style="font-size:13px;color:#888;margin-bottom:10px;">Feature</p>
+          <label><input type="checkbox"> Dry skin</label>
+          <label><input type="checkbox" checked> Mixed skin</label>
+          <label><input type="checkbox"> Oily skin</label>
+          <label><input type="checkbox"> Fair skin</label>
+          <label><input type="checkbox"> Dark skin</label>
+          <p style="font-size:13px;color:#888;margin:16px 0 10px;">Price</p>
+          <label><input type="checkbox"> $0.00 - $25.00</label>
+          <label><input type="checkbox" checked> $25.00 - $50.00</label>
+          <label><input type="checkbox"> $50.00 - $75.00</label>
+          <label><input type="checkbox"> $75.00 - $100.00</label>
+        </div>
+        <div class="discount-banner">
+          <p>ULTIMATE</p>
+          <div class="percent">75%</div>
+          <p>DISCOUNT</p>
+        </div>
+      </aside>
+
+      <!-- Products -->
+      <div>
+        <div class="shop-toolbar">
+          <div class="view-toggle">
+            <button class="active" data-view="grid" title="Grid"><i class="fas fa-th"></i></button>
+            <button data-view="list" title="List"><i class="fas fa-list"></i></button>
+            <span style="font-size:13px;color:#888;margin-left:8px;">Shop Fullwidth 5 Columns</span>
+          </div>
+          <select>
+            <option>Default sorting</option>
+            <option>Price: low to high</option>
+            <option>Price: high to low</option>
+            <option>Newest</option>
+          </select>
+        </div>
+
+        <div class="product-grid cols-5 shop-products">
+          <div class="product-card">
+            <div class="product-image">
+              <span class="badge badge-sale">-30%</span>
+              <img src="https://images.unsplash.com/photo-1631730486572-226d1f595b35?w=400&q=80" alt="The expert mascara">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Eyes</p>
+              <a href="#" class="product-name">The expert mascara</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$21.00 <span class="old">$29.00</span></p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1620916565916-4f2c2b0b0b0b?w=400&q=80" alt="Leather shopper bag">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Palettes</p>
+              <a href="#" class="product-name">Leather shopper bag</a>
+              <div class="product-rating">★★★★★</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80" alt="Velvet Melon">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Cheek & Contour</p>
+              <a href="#" class="product-name">Velvet Melon High Intensity</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$34.00</p>
+              <div class="product-colors">
+                <span class="color-dot" style="background:#c97b63;"></span>
+                <span class="color-dot" style="background:#e8b4a0;"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <span class="badge badge-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Luxe jewel lipstick">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Lips</p>
+              <a href="#" class="product-name">Luxe jewel lipstick</a>
+              <div class="product-rating">★★★★★</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1571781926291-c77df809d4b8?w=400&q=80" alt="Foundation">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Palettes</p>
+              <a href="#" class="product-name">Leather shopper bag</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <span class="badge badge-new">NEW</span>
+              <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80" alt="Compact powder">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Lips</p>
+              <a href="#" class="product-name">Luxe jewel lipstick</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <span class="badge badge-sale">-30%</span>
+              <img src="https://images.unsplash.com/photo-1631214524020-7e18db9a8cd8?w=400&q=80" alt="Eyeshadow palette">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Eyes</p>
+              <a href="#" class="product-name">The expert mascara</a>
+              <div class="product-rating">★★★★★</div>
+              <p class="product-price">$21.00 <span class="old">$29.00</span></p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80" alt="Lipstick">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Lips</p>
+              <a href="#" class="product-name">Beigey Nude weightless lipstick</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$28.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80" alt="Blush">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Cheek & Contour</p>
+              <a href="#" class="product-name">Luxe jewel lipstick</a>
+              <div class="product-rating">★★★★★</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="product-image">
+              <span class="badge badge-sale">-30%</span>
+              <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&q=80" alt="Serum">
+              <div class="product-actions">
+                <button class="add-cart">Add to Cart</button>
+                <button><i class="far fa-eye"></i></button>
+                <button><i class="far fa-heart"></i></button>
+              </div>
+            </div>
+            <div class="product-info">
+              <p class="product-category">Palettes</p>
+              <a href="#" class="product-name">Leather shopper bag</a>
+              <div class="product-rating">★★★★☆</div>
+              <p class="product-price">$49.00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pagination">
+          <a href="#" class="active">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-banner">
+    <img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=300&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1570172619644-dfd903029d52?w=300&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=300&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&q=80" alt="">
+    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=300&q=80" alt="">
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <div class="logo">Eliah</div>
+          <p>Natural beauty and spa products for modern self-care.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Subscribe Newsletter</h4>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Your email">
+            <button><i class="fas fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Eliah. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
