@@ -149,7 +149,8 @@ button, .btn {
   position: relative;
 }
 
-.header-actions a:hover {
+.header-actions a:hover,
+.header-actions button:hover {
   color: var(--primary);
 }
 
@@ -187,6 +188,121 @@ button, .btn {
 .cat-nav a:hover,
 .cat-nav a.active {
   color: var(--primary);
+}
+
+/* ===== SEARCH ===== */
+.search-overlay {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  z-index: 1002;
+  overflow: hidden;
+}
+
+.search-container {
+  position: relative;
+  top: -100px;
+  width: 80%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: top .4s ease;
+}
+
+.search-container.show {
+  top: 0;
+}
+
+.search-container input{
+  flex: 1;
+  height: 30px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+  padding: 0 20px
+}
+
+i.search-icon-btn{
+  width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+i.search-icon-btn:hover{
+  color: var(--primary);
+}
+
+
+/* ===== CART ===== */
+.cart {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 440px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  z-index: 1001;
+}
+
+.cart-top{
+  height: 70vh;
+}
+
+.cart-top h2{
+  font-weight: 500;
+  text-align: center;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-top .cart-item-container{
+  height: 80%;
+  overflow-y: scroll;
+  overflow: hidden;
+}
+
+.default-text{
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+.cart-bottom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding: 40px 20px;
+}
+
+.cart-bottom .total-price{
+  text-align: right;
+  padding: 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.cart-bottom .btn{
+  width: 100%;
+  border-radius: 30px;
+}
+
+.cart-bottom .btn:last-child{
+  margin-top: 10px;
+}
+
+.cart.open {
+  right: 0;
 }
 
 /* ===== HERO ===== */
@@ -1425,6 +1541,9 @@ button, .btn {
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     gap: 16px;
+  }
+  .cart {
+    width: 100%;
   }
   .hero {
     min-height: 400px;

@@ -21,13 +21,37 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="header-actions">
-        <a href="#"><i class="fas fa-search"></i></a>
+        <button class="search-btn"><i class="fas fa-search"></i></button>
         <a href="#"><i class="far fa-heart"></i></a>
-        <a href="#"><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></a>
+        <button class="cart-btn"><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></button>
         <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
       </div>
     </div>
   </header>
+
+  <!-- Search -->
+  <div class="search-overlay">
+    <div class="search-container">
+      <input type="text" placeholder="Search products...">
+      <i class="fas fa-search search-icon-btn"></i>
+    </div>
+  </div>
+
+  <!-- Cart -->
+   <div class="cart">
+    <div class="cart-top">
+      <h2>Shopping Cart</h2>
+      <div class="cart-item-container">
+        <div class="default-text">Your cart is empty</div>
+        <!-- Cart items will be added here dynamically -->
+      </div>
+    </div>
+    <div class="cart-bottom">
+      <p class="total-price" id="total-price">Total: $0.00</p>
+      <button class="btn btn-dark checkout-btn">Proceed to Checkout</button>
+      <button class="btn btn-outline close-btn">Close</button>
+    </div>
+   </div>
 
   <!-- Hero -->
   <section class="hero hero-spa">
@@ -60,7 +84,7 @@
       <div class="product-grid">
         <!-- Product 1 - large featured style -->
         <div class="product-card" style="grid-row: span 2;">
-          <div class="product-image" style="aspect-ratio: auto; height: 100%; min-height: 420px;">
+          <div class="product-image" style="aspect-ratio: auto; height: 83%; min-height: 420px;">
             <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80" alt="Baobab seed Loofah bag gift set" style="object-fit: cover; padding: 0;">
           </div>
           <div class="product-info">
