@@ -2,11 +2,12 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Search toggle
-  const closeSearch = document.querySelector(".close-search");
   const searchBtn = document.querySelector(".search-btn");
   const searchOverlay = document.querySelector(".search-container");
   if (searchBtn && searchOverlay) {
     searchBtn.addEventListener("click", () => {
+      nav.classList.remove("open");
+      cart.classList.remove("open");
       searchOverlay.classList.toggle("show");
     });
   }
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (cartBtn && cart) {
     cartBtn.addEventListener("click", () => {
       searchOverlay.classList.remove("show");
+      nav.classList.remove("open");
       cart.classList.add("open");
     });
   }
