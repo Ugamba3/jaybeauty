@@ -19,6 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -55,7 +56,7 @@ button, .btn {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  /* padding: 0 20px; */
+  padding: 0 20px;
 }
 
 /* ===== TOP BAR ===== */
@@ -196,13 +197,14 @@ button, .btn {
   min-height: 520px;
   display: flex;
   align-items: center;
+  justify-content: left;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 480px;
-  padding: 60px 0;
+  max-width: 1200px;
+  padding: 80px;
 }
 
 .hero-label {
@@ -217,7 +219,7 @@ button, .btn {
   font-size: 48px;
   font-weight: 700;
   line-height: 1.15;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: #1a1a1a;
 }
 
@@ -227,13 +229,12 @@ button, .btn {
 
 .hero p {
   color: var(--text-light);
-  margin-bottom: 28px;
   font-size: 15px;
 }
 
 .btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 12px 38px;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -1398,6 +1399,15 @@ button, .btn {
 }
 
 @media (max-width: 768px) {
+
+  .container {
+    max-width: 580px;
+    margin: 0 auto;
+    padding: 18px 20px;
+  }
+  .logo{
+    font-size: 20px;
+  }
   .nav {
     display: none;
   }
