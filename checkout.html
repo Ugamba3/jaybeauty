@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JayBeauty — Checkout</title>
+    <link rel="stylesheet" href="style.css">
+  <!-- <base target="_blank"> -->
+</head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JayBeauty</a>
+        <nav class="nav">
+          <a href="index.html" class="active">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <button class="search-btn"><i class="fas fa-search"></i></button>
+          <a href="#"><i class="far fa-heart"></i></a>
+          <button><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></button>
+          <!-- <button class="cart-btn"><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></button> -->
+          <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="checkout-flex">
+      <div class="checkout-body">
+        <h2 class="section-title">Checkout</h2>
+
+        <div id="orderSummary" class="cart-items">
+          
+        </div>
+
+        <p class="form-success hidden" id="orderDone">✅ Order placed! Click here to <a href="shop.html">Get More</a></p>
+      </div>
+      <aside class="checkout-calculation">
+        <p id="orderItems">Items(0): <span>$0.00</span></p>
+        <p id="orderTax">Tax: <span>$0.00</span></p>
+        <p id="Total">Total: <span>$0.00</span></p>
+        <button class="checkout-button" id="placeOrderBtn">Place Order</button>
+      </aside>
+    </div>
+
+    <script src="https://kit.fontawesome.com/13f42163ac.js" crossorigin="anonymous"></script>
+
+    <script>
+      // ---- Cart restored from localStorage (saved by script.js) ----
+      const TAX_RATE = 0.08; // example US sales-tax rate — adjust per state
+      const CART_KEY = "stockroomCart";
+
+      let cart = [];
+      try {
+        cart = JSON.parse(localStorage.getItem(CART_KEY)) || [];
+      } catch (error) {
+        cart = [];
+      }
+
+      const box = document.getElementById("orderSummary");
+
+      // ---- Render the saved cart items ----
+      function renderOrder() {
+        if (cart.length === 0) {
+          box.innerHTML = '<p class="empty-state">Your cart is empty. Add something lovely first.</p>';
+        } else {
+          box.innerHTML = cart.map(item => `
+            <div class="checkout-item">
+              <div class="cart-info">
+                <img src="${item.image}" alt="${item.name}"/>
+                <div>
+                  <h3>${item.name}</h3>
+                  <p>${item.category} · $${item.price}</p>
+                </div>
+              </div>
+              <span class="price">$${Number(item.price).toFixed(2)}</span>
+            </div>`).join("");
+        }
+
+        // ---- Calculations ----
+        const itemCount = cart.length;
+        const itemsTotal = cart.reduce((sum, item) => sum + (Number(item.price) || 0), 0);
+        const tax = itemsTotal * TAX_RATE;
+        const grandTotal = itemsTotal + tax;
+
+        document.getElementById("orderItems").innerHTML = `Items(${itemCount}): <span>$${itemsTotal.toFixed(2)}</span>`;
+        document.getElementById("orderTax").innerHTML = `Tax: <span>$${tax.toFixed(2)}</span>`;
+        document.getElementById("Total").innerHTML = `Total: <span>$${grandTotal.toFixed(2)}</span>`;
+      }
+
+      renderOrder();
+
+      document.getElementById("placeOrderBtn").addEventListener("click", () => {
+        document.getElementById("orderDone").classList.remove("hidden");
+        cart = [];
+        localStorage.removeItem(CART_KEY);
+        renderOrder();
+      });
+    </script>
+  </body>
+</html>

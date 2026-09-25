@@ -1,70 +1,209 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact – Eliah</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="header">
-    <div class="container header-inner">
-      <a href="index.html" class="logo">Eliah</a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="shop.html">Shop</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-      <div class="header-actions">
-        <a href="#"><i class="fas fa-search"></i></a>
-        <a href="#"><i class="far fa-heart"></i></a>
-        <a href="#"><i class="fas fa-shopping-bag"></i> <span class="cart-count">Cart: $0.00</span></a>
-        <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – JayBeauty</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-inner">
+        <a href="index.html" class="logo">JayBeauty</a>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="about.html">About</a>
+          <a href="shop.html">Shop</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a href="#"><i class="fas fa-search"></i></a>
+          <a href="#"><i class="far fa-heart"></i></a>
+          <a href="#"
+            ><i class="fas fa-shopping-bag"></i>
+            <span class="cart-count">Cart: $0.00</span></a
+          >
+          <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <div class="page-header">
+      <div class="container">
+        <h1>Contact</h1>
+        <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
       </div>
     </div>
-  </header>
 
-  <div class="page-header">
-    <div class="container">
-      <h1>Contact</h1>
-      <div class="breadcrumb"><a href="index.html">Home</a> / Contact</div>
-    </div>
-  </div>
+    <section class="section">
+      <div
+        class="container"
+        style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px"
+      >
+        <div>
+          <h2 style="margin-bottom: 20px">Get in Touch</h2>
+          <p style="color: #666; margin-bottom: 30px">
+            We'd love to hear from you. Send us a message and we'll respond as
+            soon as possible.
+          </p>
+          <form id="booking-form" onsubmit="sendBooking(event)" style="display: flex; flex-direction: column; gap: 16px" >
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              required
+              style="
+                padding: 12px 16px;
+                border: 1px solid #eee;
+                font-size: 14px;
+              "
+            />
 
-  <section class="section">
-    <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:50px;">
-      <div>
-        <h2 style="margin-bottom:20px;">Get in Touch</h2>
-        <p style="color:#666;margin-bottom:30px;">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
-        <form style="display:flex;flex-direction:column;gap:16px;">
-          <input type="text" placeholder="Your Name" style="padding:12px 16px;border:1px solid #eee;font-size:14px;">
-          <input type="email" placeholder="Your Email" style="padding:12px 16px;border:1px solid #eee;font-size:14px;">
-          <input type="text" placeholder="Subject" style="padding:12px 16px;border:1px solid #eee;font-size:14px;">
-          <textarea placeholder="Your Message" rows="6" style="padding:12px 16px;border:1px solid #eee;font-size:14px;resize:vertical;"></textarea>
-          <button type="submit" class="btn btn-dark" style="align-self:flex-start;">SEND MESSAGE</button>
-        </form>
-      </div>
-      <div>
-        <h2 style="margin-bottom:20px;">Contact Info</h2>
-        <div style="margin-bottom:24px;">
-          <h4 style="margin-bottom:8px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-right:8px;"></i> Address</h4>
-          <p style="color:#666;">123 Beauty Lane, Suite 100<br>New York, NY 10001</p>
-        </div>
-        <div style="margin-bottom:24px;">
-          <h4 style="margin-bottom:8px;"><i class="fas fa-phone" style="color:var(--primary);margin-right:8px;"></i> Phone</h4>
-          <p style="color:#666;">+1 (555) 123-4567</p>
-        </div>
-        <div style="margin-bottom:24px;">
-          <h4 style="margin-bottom:8px;"><i class="fas fa-envelope" style="color:var(--primary);margin-right:8px;"></i> Email</h4>
-          <p style="color:#666;">hello@eliah.com</p>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Your Phone Number"
+              required
+              style="
+                padding: 12px 16px;
+                border: 1px solid #eee;
+                font-size: 14px;
+              "
+            />
+
+            <input
+              type="text"
+              id="service"
+              placeholder="Requested Service (e.g. Body Scrub)"
+              required
+              style="
+                padding: 12px 16px;
+                border: 1px solid #eee;
+                font-size: 14px;
+              "
+            />
+
+            <input
+              type="date"
+              id="date"
+              required
+              style="
+                padding: 12px 16px;
+                border: 1px solid #eee;
+                font-size: 14px;
+              "
+            />
+
+            <textarea
+              id="message"
+              placeholder="Your Message (Optional)"
+              rows="4"
+              style="
+                padding: 12px 16px;
+                border: 1px solid #eee;
+                font-size: 14px;
+                resize: vertical;
+              "
+            ></textarea>
+
+            <button
+              type="submit"
+              class="btn btn-dark"
+              style="align-self: flex-start"
+            >
+              SEND MESSAGE
+            </button>
+          </form>
         </div>
         <div>
-          <h4 style="margin-bottom:12px;">Follow Us</h4>
-          <div class="social-links">
+          <h2 style="margin-bottom: 20px">Contact Info</h2>
+          <div style="margin-bottom: 24px">
+            <h4 style="margin-bottom: 8px">
+              <i
+                class="fas fa-map-marker-alt"
+                style="color: var(--primary); margin-right: 8px"
+              ></i>
+              Address
+            </h4>
+            <p style="color: #666">
+              123 Beauty Lane, Suite 100<br />New York, NY 10001
+            </p>
+          </div>
+          <div style="margin-bottom: 24px">
+            <h4 style="margin-bottom: 8px">
+              <i
+                class="fas fa-phone"
+                style="color: var(--primary); margin-right: 8px"
+              ></i>
+              Phone
+            </h4>
+            <p style="color: #666">+1 (555) 123-4567</p>
+          </div>
+          <div style="margin-bottom: 24px">
+            <h4 style="margin-bottom: 8px">
+              <i
+                class="fas fa-envelope"
+                style="color: var(--primary); margin-right: 8px"
+              ></i>
+              Email
+            </h4>
+            <p style="color: #666">hello@JayBeauty.com</p>
+          </div>
+          <div>
+            <h4 style="margin-bottom: 12px">Follow Us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <div class="logo">JayBeauty</div>
+            <p>Natural beauty and spa products for modern self-care.</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="services.html">Services</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Subscribe Newsletter</h4>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Your email" />
+              <button><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2026 JayBeauty. All rights reserved.</p>
+          <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -72,54 +211,44 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-top">
-        <div>
-          <div class="logo">Eliah</div>
-          <p>Natural beauty and spa products for modern self-care.</p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a href="blog.html">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Support</h4>
-          <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Subscribe Newsletter</h4>
-          <div class="footer-newsletter">
-            <input type="email" placeholder="Your email">
-            <button><i class="fas fa-paper-plane"></i></button>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Eliah. All rights reserved.</p>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-pinterest"></i></a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <script src="script.js"></script>
+    <script>
+      // WHATSAPP MESSAGE
+      function sendBooking(event) {
+        event.preventDefault();
 
-  <script src="script.js"></script>
-</body>
+        const name = document.getElementById("name").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const service = document.getElementById("service").value.trim();
+        const date = document.getElementById("date").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Basic validation check
+        if (!name || !phone || !service || !date) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+
+        // Construct message using ES6 template string
+        const rawMessage = `Hello Anthonia Recovery Space,
+
+        I would like to make a booking request.
+        Name: ${name}
+        Phone: ${phone}
+        Service: ${service}
+        Preferred date: ${date}
+        Message: ${message || "No additional message."}
+
+        Thank you.`;
+
+        // Encode the entire formatted message for the URL
+        const encodedMessage = encodeURIComponent(rawMessage);
+        const whatsappUrl = `https://wa.link/5tiock?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, "_blank");
+      }
+    </script>
+  </body>
 </html>

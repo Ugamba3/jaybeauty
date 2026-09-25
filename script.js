@@ -1,16 +1,16 @@
-// ===== ELIAH Website JS =====
+// ===== JayBeauty Website JS =====
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Search toggle
+
   const searchBtn = document.querySelector(".search-btn");
-  const searchOverlay = document.querySelector(".search-container");
-  if (searchBtn && searchOverlay) {
-    searchBtn.addEventListener("click", () => {
-      nav.classList.remove("open");
-      cart.classList.remove("open");
-      searchOverlay.classList.toggle("show");
-    });
-  }
+  const searchOverlay = document.querySelector(".search-overlay");
+  const searchContainer = document.querySelector(".search-container");
+
+  searchBtn.addEventListener("click", () => {
+    searchOverlay.classList.toggle("show");
+    searchContainer.classList.toggle("show");
+  });
 
   // Cart toggle
   const closeCart = document.querySelector(".close-btn");
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Add to cart buttons (simple demo)
   document
-    .querySelectorAll(".add-cart, .product-actions button")
+    .querySelectorAll(".add-cart, .product-actions .add-cart")
     .forEach((btn) => {
       btn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -100,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.style.transform = "scale(0.9)";
         setTimeout(() => (btn.style.transform = ""), 150);
       });
+
+      console.log('added')
     });
 
   // Product tabs
@@ -112,6 +114,120 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((t) => t.classList.remove("active"));
       tab.classList.add("active");
     });
+  });
+
+  
+
+  const newArrivalItems = [
+    {
+      id: "01",
+      badge: null,
+      category: "Cheek & Contour",
+      name: "Baobab seed · Loofah bag gift set",
+      price: 80,
+      oldPrice: null,
+      rating: 5,
+    },
+    {
+      id: "02",
+      badge: "-30%",
+      category: "Eyes",
+      name: "Litchi · african clay burner",
+      price: 21,
+      oldPrice: 29,
+      rating: 4,
+    },
+    {
+      id: "03",
+      badge: null,
+      category: "Cheek & Contour",
+      name: "Velvet Melon High Intensity",
+      price: 34,
+      oldPrice: null,
+      rating: 5,
+    },
+    {
+      id: "04",
+      badge: "NEW",
+      category: "Lips",
+      name: "Luxe jewel lipstick",
+      price: 49,
+      oldPrice: null,
+      rating: 4,
+    },
+    {
+      id: "05",
+      badge: null,
+      category: "Palettes",
+      name: "Leather shopper bag",
+      price: 49,
+      oldPrice: null,
+      rating: 5,
+    },
+  ];
+
+  const new_arrival_grid = document.getElementById("product-grid");
+
+  // Use .forEach for side-effects (DOM manipulation) instead of .map
+  newArrivalItems.forEach((item, index) => {
+    const card = document.createElement("div");
+    card.classList.add("product-card");
+
+    // Dynamic rating stars calculation
+    const starsHTML = "★".repeat(item.rating) + "☆".repeat(5 - item.rating);
+
+    // Dynamic badge HTML class based on type
+    const badgeClass = item.badge === "NEW" ? "badge-new" : "badge-sale";
+    const badgeHTML = item.badge
+      ? `<span class="badge ${badgeClass}">${item.badge}</span>`
+      : "";
+
+    // Dynamic old price display
+    const oldPriceHTML = item.oldPrice
+      ? `<span class="old">$${item.oldPrice.toFixed(2)}</span>`
+      : "";
+
+    // Action buttons reused across standard cards
+    const actionButtonsHTML = `
+    <div class="product-actions">
+      <button class="add-cart">Add to Cart</button>
+      <button><i class="far fa-eye"></i></button>
+      <button><i class="far fa-heart"></i></button>
+    </div>
+  `;
+
+    // 1. Featured card (first element in array)
+    if (index === 0) {
+      card.style.gridRow = "span 2";
+      card.innerHTML = `
+      <div class="product-image" style="aspect-ratio: auto; height: 83%; min-height: 420px;">
+        <img src="media/new-arrival-${item.id}.jpg" alt="${item.name}" style="object-fit: cover; padding: 0;">
+      </div>
+      <div class="product-info">
+        <p class="product-category">${item.category}</p>
+        <a href="#" class="product-name">${item.name}</a>
+        <div class="product-rating">${starsHTML}</div>
+        <p class="product-price">$${item.price.toFixed(2)}</p>
+      </div>
+    `;
+    } else {
+      // 2. Standard cards (with or without badges/old prices)
+      card.innerHTML = `
+      <div class="product-image">
+        ${badgeHTML}
+        <img src="media/new-arrival-${item.id}.jpg" alt="${item.name}">
+        ${actionButtonsHTML}
+      </div>
+      <div class="product-info">
+        <p class="product-category">${item.category}</p>
+        <a href="#" class="product-name">${item.name}</a>
+        <div class="product-rating">${starsHTML}</div>
+        <p class="product-price">$${item.price.toFixed(2)} ${oldPriceHTML}</p>
+      </div>
+    `;
+    }
+
+    new_arrival_grid.appendChild(card);
   });
 
   // View toggle (grid / list)
@@ -130,6 +246,25 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // shop-toolbar
+  const option = document.querySelectorAll(".shop-toolbar select option");
+  const itemCard = document.querySelectorAll(
+    ".product-card .product-info .product-price",
+  );
+
+  option.forEach((option) => {
+    option.addEventListener('click', () => {
+      const card = document.querySelectorAll(".product-card .badge");
+      card.forEach((card) => {
+        if (option.textContent == "Newest") {
+          card.style.display = "";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    })
+  });
 
   // Testimonial avatars
   const avatars = document.querySelectorAll(".testimonial-avatar");
@@ -151,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       quote:
-        "Professional makeup artists who really know their craft. I looked stunning for my wedding day. Thank you Eliah!",
+        "Professional makeup artists who really know their craft. I looked stunning for my wedding day. Thank you JayBeauty!",
       author: "Emma Chen",
       location: "London",
     },
@@ -170,6 +305,152 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const shopItems = [
+    {
+      image:
+        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80",
+      badge: "30",
+      category: "Eyes",
+      name: "The expert mascara",
+      rating: "★★★★☆",
+      price: 21.0,
+      oldPrice: 29.0,
+    },
+    {
+      image: "media/Leather-shopper-bag.jpg",
+      badge: "",
+      category: "Palettes",
+      name: "Leather shopper bag",
+      rating: "★★★★★",
+      price: 49.0,
+      oldPrice: "",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80",
+      badge: "",
+      category: "Cheek & Contour",
+      name: "Velvet Melon High Intensity",
+      rating: "★★★★☆",
+      price: 34.0,
+      oldPrice: "",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80",
+      badge: "NEW",
+      category: "Lips",
+      name: "Luxe jewel lipstick",
+      rating: "★★★★★",
+      price: 49.0,
+      oldPrice: "",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&q=80",
+      badge: "NEW",
+      category: "Lips",
+      name: "Luxe jewel lipstick",
+      rating: "★★★★☆",
+      price: 49.0,
+      oldPrice: "",
+    },
+    {
+      image: "media/The-expert-mascara.jpg",
+      badge: "30",
+      category: "Eyes",
+      name: "The expert mascara",
+      rating: "★★★★★",
+      price: 21.0,
+      oldPrice: 29.0,
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80",
+      badge: "",
+      category: "Lips",
+      name: "Beigey Nude weightless lipstick",
+      rating: "★★★★☆",
+      price: 28.0,
+      oldPrice: "",
+    },
+    {
+      image:
+        "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&q=80",
+      badge: "",
+      category: "Cheek & Contour",
+      name: "Luxe jewel lipstick",
+      rating: "★★★★★",
+      price: 49.0,
+      oldPrice: "",
+    },
+  ];
+
+  const root = document.getElementById("root");
+
+  shopItems.map((item) => {
+    const card = document.createElement("div");
+
+    card.classList.add("product-card");
+
+    if (item.oldPrice == "" || item.badge == "") {
+      card.innerHTML = `
+        <div class="product-image">
+          <img src="${item.image}" alt="The expert mascara">
+          <div class="product-actions">
+            <button class="add-cart">Add to Cart</button>
+            <button><i class="far fa-eye"></i></button>
+            <button><i class="far fa-heart"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">${item.category}</p>
+          <a href="#" class="product-name">${item.name}</a>
+          <div class="product-rating">★★★★☆</div>
+          <p class="product-price">$${item.price}.00</p>
+        </div>
+      `;
+    } else if (item.oldPrice == "") {
+      card.innerHTML = `
+        <div class="product-image">
+          <span class="badge badge-sale">-${item.badge}%</span>
+          <img src="${item.image}" alt="The expert mascara">
+          <div class="product-actions">
+            <button class="add-cart">Add to Cart</button>
+            <button><i class="far fa-eye"></i></button>
+            <button><i class="far fa-heart"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">${item.category}</p>
+          <a href="#" class="product-name">${item.name}</a>
+          <div class="product-rating">★★★★☆</div>
+          <p class="product-price">$${item.price}.00</p>
+        </div>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="product-image">
+          <span class="badge badge-sale">-${item.badge}%</span>
+          <img src="${item.image}" alt="The expert mascara">
+          <div class="product-actions">
+            <button class="add-cart">Add to Cart</button>
+            <button><i class="far fa-eye"></i></button>
+            <button><i class="far fa-heart"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-category">${item.category}</p>
+          <a href="#" class="product-name">${item.name}</a>
+          <div class="product-rating">★★★★☆</div>
+          <p class="product-price">$${item.price}.00 <span class="old">$${item.oldPrice}.00</span></p>
+        </div>
+      `;
+    }
+
+    root.appendChild(card);
+  });
+
   // Smooth scroll for anchor links
   // document.querySelectorAll('a[href^="#"]').forEach(a => {
   //   a.addEventListener('click', e => {
@@ -180,4 +461,6 @@ document.addEventListener('DOMContentLoaded', () => {
   //     }
   //   });
   // });
+
+  
 });
